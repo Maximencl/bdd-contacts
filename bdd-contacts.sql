@@ -13,3 +13,10 @@ CREATE TABLE contacts (
     pays_iso_3 VARCHAR(3),
     FOREIGN KEY (pays_iso_3) REFERENCES pays(iso_3) ON DELETE SET NULL
 );
+
+CREATE TABLE pays (
+    iso_3 VARCHAR(3),
+    nom VARCHAR(70),
+    iso_2 VARCHAR(2),
+    nationalise VARCHAR(50),
+);
