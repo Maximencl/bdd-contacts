@@ -1,6 +1,15 @@
 DROP DATABASE IF EXISTS exo_contacts;
 CREATE DATABASE exo_contacts CHARACTER SET `utf8` COLLATE = `utf8_general_ci`;
 
+USE exo_contacts;
+
+CREATE TABLE pays (
+    iso_3 VARCHAR(3) PRIMARY KEY,
+    nom VARCHAR(70),
+    iso_2 VARCHAR(2),
+    nationalise VARCHAR(50)
+);
+
 CREATE TABLE contacts (
     id int PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(70),
@@ -14,20 +23,27 @@ CREATE TABLE contacts (
     FOREIGN KEY (pays_iso_3) REFERENCES pays(iso_3) ON DELETE SET NULL
 );
 
-CREATE TABLE pays (
-    iso_3 VARCHAR(3),
-    nom VARCHAR(70),
-    iso_2 VARCHAR(2),
-    nationalise VARCHAR(50),
-);
+
 
 CREATE TABLE telephone (
     id int PRIMARY KEY AUTO_INCREMENT,
-    id_contact int PRIMARY KEY AUTO_INCREMENT,
+    id_contact int,
     numero VARCHAR(50),
     type TINYINT NOT NULL,
     FOREIGN KEY (id_contact) REFERENCES contacts(id) ON DELETE CASCADE
 );
+
+INSERT INTO `pays` (`iso_3`, `nom`, `iso_2`, `nationalise`) VALUES
+('FRA', 'France', 'FR', 'Français'),
+('USA', 'United States', 'US', 'English'),
+('GER', 'Germany', 'DE', 'German'),
+('ITA', 'Italy', 'IT', 'Italian'),
+('ESP', 'Spain', 'ES', 'Spanish'),
+('GBR', 'United Kingdom', 'GB', 'English'),
+('JPN', 'Japan', 'JP', 'Japanese'),
+('CAN', 'Canada', 'CA', 'English'),
+('AUS', 'Australia', 'AU', 'English'),
+('BRA', 'Brazil', 'BR', 'Portuguese');
 
 INSERT INTO `contacts` (`nom`, `prenom`, `date_de_naissance`, `sexe`, `adresse`, `cp`, `ville`, `pays_iso_3`) VALUES
 ('Doe', 'John', '1990-01-15', 'Male', '123 Main St', '12345', 'City1', 'FRA'),
@@ -41,17 +57,7 @@ INSERT INTO `contacts` (`nom`, `prenom`, `date_de_naissance`, `sexe`, `adresse`,
 ('Turner', 'Michael', '1987-06-18', 'Male', '606 Pine St', '78901', 'City9', 'AUS'),
 ('Silva', 'Ana', '1993-08-22', 'Female', '707 Oak St', '89012', 'City10', 'BRA');
 
-INSERT INTO `pays` (`iso_3`, `nom`, `iso_2`, `nationalise`) VALUES
-('FRA', 'France', 'FR', 'Français'),
-('USA', 'United States', 'US', 'English'),
-('GER', 'Germany', 'DE', 'German'),
-('ITA', 'Italy', 'IT', 'Italian'),
-('ESP', 'Spain', 'ES', 'Spanish'),
-('GBR', 'United Kingdom', 'GB', 'English'),
-('JPN', 'Japan', 'JP', 'Japanese'),
-('CAN', 'Canada', 'CA', 'English'),
-('AUS', 'Australia', 'AU', 'English'),
-('BRA', 'Brazil', 'BR', 'Portuguese');
+
 
 INSERT INTO telephone (id_contact, numero, type) VALUES
 (1, '123-456-7890', 1),
