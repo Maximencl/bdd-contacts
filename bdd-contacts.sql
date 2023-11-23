@@ -53,3 +53,14 @@ INSERT INTO `pays` (`iso_3`, `nom`, `iso_2`, `nationalise`) VALUES
 ('AUS', 'Australia', 'AU', 'English'),
 ('BRA', 'Brazil', 'BR', 'Portuguese');
 
+INSERT INTO telephone (id_contact, numero, type) VALUES
+(1, '123-456-7890', 1),
+(2, '987-654-3210', 2),
+(3, '111-222-3333', 1),
+(4, '444-555-6666', 2),
+(5, '777-888-9999', 1),
+(6, '333-222-1111', 2),
+(7, '555-444-3333', 1),
+(8, '888-777-6666', 2),
+(9, '999-888-7777', 1),
+(10, '666-555-4444', 2);
