@@ -20,3 +20,11 @@ CREATE TABLE pays (
     iso_2 VARCHAR(2),
     nationalise VARCHAR(50),
 );
+
+CREATE TABLE telephone (
+    id int PRIMARY KEY AUTO_INCREMENT,
+    id_contact int PRIMARY KEY AUTO_INCREMENT,
+    numero VARCHAR(50),
+    type TINYINT NOT NULL,
+    FOREIGN KEY (id_contact) REFERENCES contacts(id) ON DELETE CASCADE
+);
