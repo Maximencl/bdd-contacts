@@ -29,7 +29,7 @@ CREATE TABLE telephone (
     FOREIGN KEY (id_contact) REFERENCES contacts(id) ON DELETE CASCADE
 );
 
-INSERT INTO 'contacts' ('nom', 'prenom', 'date_de_naissance', 'sexe', 'adresse', 'cp', 'ville', 'pays_iso_3') VALUES
+INSERT INTO `contacts` (`nom`, `prenom`, `date_de_naissance`, `sexe`, `adresse`, `cp`, `ville`, `pays_iso_3`) VALUES
 ('Doe', 'John', '1990-01-15', 'Male', '123 Main St', '12345', 'City1', 'FRA'),
 ('Smith', 'Jane', '1985-05-20', 'Female', '456 Oak St', '67890', 'City2', 'USA'),
 ('Müller', 'Hans', '1982-11-08', 'Male', '789 Birch St', '23456', 'City3', 'GER'),
@@ -40,4 +40,16 @@ INSERT INTO 'contacts' ('nom', 'prenom', 'date_de_naissance', 'sexe', 'adresse',
 ('Johnson', 'Emily', '1980-12-03', 'Female', '505 Walnut St', '67890', 'City8', 'CAN'),
 ('Turner', 'Michael', '1987-06-18', 'Male', '606 Pine St', '78901', 'City9', 'AUS'),
 ('Silva', 'Ana', '1993-08-22', 'Female', '707 Oak St', '89012', 'City10', 'BRA');
+
+INSERT INTO `pays` (`iso_3`, `nom`, `iso_2`, `nationalise`) VALUES
+('FRA', 'France', 'FR', 'Français'),
+('USA', 'United States', 'US', 'English'),
+('GER', 'Germany', 'DE', 'German'),
+('ITA', 'Italy', 'IT', 'Italian'),
+('ESP', 'Spain', 'ES', 'Spanish'),
+('GBR', 'United Kingdom', 'GB', 'English'),
+('JPN', 'Japan', 'JP', 'Japanese'),
+('CAN', 'Canada', 'CA', 'English'),
+('AUS', 'Australia', 'AU', 'English'),
+('BRA', 'Brazil', 'BR', 'Portuguese');
 
